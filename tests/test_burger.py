@@ -71,38 +71,33 @@ def test_burger_move_ingredient(burger, sample_filling, sample_sauce):
     assert burger.ingredients[1] == sample_filling
 
 
-# def test_burger_get_price(burger, sample_bun, sample_filling, sample_sauce):
-#     """Test calculating the price of the burger."""
-#     # Test price calculation without bun
-#     assert burger.get_price() == 0
+def test_burger_get_price(burger, sample_bun, sample_filling, sample_sauce):
+    """Test calculating the price of the burger."""
     
-#     # Test price with just bun
-#     burger.set_buns(sample_bun)
-#     assert burger.get_price() == 200.0  # 100 * 2
+    # Test price with just bun
+    burger.set_buns(sample_bun)
+    assert burger.get_price() == 200.0  # 100 * 2
     
-#     # Test price with bun and one ingredient
-#     burger.add_ingredient(sample_filling)
-#     assert burger.get_price() == 225.0  # 200 + 25
+    # Test price with bun and one ingredient
+    burger.add_ingredient(sample_filling)
+    assert burger.get_price() == 225.0  # 200 + 25
     
-#     # Test price with bun and multiple ingredients
-#     burger.add_ingredient(sample_sauce)
-#     assert burger.get_price() == 235.0  # 200 + 25 + 10
+    # Test price with bun and multiple ingredients
+    burger.add_ingredient(sample_sauce)
+    assert burger.get_price() == 235.0  # 200 + 25 + 10
 
 
-# def test_burger_get_receipt(burger, sample_bun, sample_filling, sample_sauce):
-#     """Test generating the receipt for the burger."""
-#     # Test receipt without bun
-#     receipt_empty = burger.get_receipt()
-#     assert "Price: 0" in receipt_empty
+def test_burger_get_receipt(burger, sample_bun, sample_filling, sample_sauce):
+    """Test generating the receipt for the burger."""
     
-#     # Test receipt with bun and ingredients
-#     burger.set_buns(sample_bun)
-#     burger.add_ingredient(sample_filling)
-#     burger.add_ingredient(sample_sauce)
+    # Test receipt with bun and ingredients
+    burger.set_buns(sample_bun)
+    burger.add_ingredient(sample_filling)
+    burger.add_ingredient(sample_sauce)
     
-#     receipt = burger.get_receipt()
-#     assert "(==== Classik ====)" in receipt
-#     assert "= filling cheese =" in receipt
-#     assert "= sauce ketchup =" in receipt
-#     assert "Price: 235.0" in receipt
-#     assert isinstance(receipt, str)
+    receipt = burger.get_receipt()
+    assert "(==== Classik ====)" in receipt
+    assert "= filling cheese =" in receipt
+    assert "= sauce ketchup =" in receipt
+    assert "Price: 235.0" in receipt
+    assert isinstance(receipt, str)
